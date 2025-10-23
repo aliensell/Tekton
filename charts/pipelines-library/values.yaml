@@ -221,6 +221,11 @@ tekton:
     requests:
       cpu: "500m"
       memory: "1Gi"
+  # -- Defines which image build and verification tools Tekton pipelines use.
+  # buildTool options: kaniko | buildkit
+  # buildToolVerify options: dockerbuild-verify | dockerbuild-verify-buildkit
+  buildTool: kaniko
+  buildToolVerify: dockerbuild-verify
 
 # Deploy KubeRocketCI Tekton Interceptor along with pipelines library
 interceptor:

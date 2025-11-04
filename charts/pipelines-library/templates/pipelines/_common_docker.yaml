@@ -2,7 +2,7 @@
 - name: kaniko-build
   taskRef:
     kind: Task
-    name: kaniko
+    name: {{ .Values.tekton.buildTool }}
   runAfter:
     - dockerfile-lint
   params:
@@ -22,7 +22,7 @@
 - name: dockerbuild-verify
   taskRef:
     kind: Task
-    name: dockerbuild-verify
+    name: {{ .Values.tekton.buildToolVerify }}
   runAfter:
     - dockerfile-lint
   workspaces:

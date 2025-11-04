@@ -2,7 +2,7 @@
 - name: dockerbuild-verify
   taskRef:
     kind: Task
-    name: dockerbuild-verify
+    name: {{ .Values.tekton.buildToolVerify }}
   runAfter:
     - dockerfile-lint
     - build
@@ -17,7 +17,7 @@
 - name: kaniko-build
   taskRef:
     kind: Task
-    name: kaniko
+    name: {{ .Values.tekton.buildTool }}
   runAfter:
     - get-version
     - build
